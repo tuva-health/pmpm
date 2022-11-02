@@ -1,0 +1,27 @@
+version: 2
+
+models:
+    - name: member_months
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+
+    - name: encounter_spend
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+    
+    - name: encounter_utilization
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+    
+    - name: pmpm_spend
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+    
+    - name: pmpm_utilization
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
