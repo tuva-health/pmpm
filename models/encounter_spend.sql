@@ -35,7 +35,28 @@ select
     coalesce(substance_abuse_treatment_facility,0) as substance_abuse_treatment_facility,
     coalesce(telehealth,0) as telehealth,
     coalesce(unmapped,0) as unmapped,
-    coalesce(urgent_care,0) as urgent_care
+    coalesce(urgent_care,0) as urgent_care,
+    (    coalesce(acute_inpatient,0) 
+        + coalesce(ambulatory_surgical_center,0) 
+        + coalesce(dialysis_center,0) 
+        + coalesce(emergency_department,0)
+        + coalesce(home_health,0)
+        + coalesce(hospice,0) 
+        + coalesce(inpatient_psychiatric,0) 
+        + coalesce(inpatient_rehabilitation,0) 
+        + coalesce(mental_health_center,0) 
+        + coalesce(office_visit,0) 
+        + coalesce(other,0) 
+        + coalesce(outpatient_rehabilitation,0) 
+        + coalesce(outpatient,0) 
+        + coalesce(professional_only_acute_inpatient,0) 
+        + coalesce(skilled_nursing_facility,0) 
+        + coalesce(substance_abuse_treatment_facility,0) 
+        + coalesce(telehealth,0) 
+        + coalesce(unmapped,0) 
+        + coalesce(urgent_care,0)
+    )
+    as total_paid_amount
 from encounters
 pivot (
     sum(paid_amount)
