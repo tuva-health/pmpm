@@ -24,6 +24,7 @@ select
 ,   b.telehealth
 ,   b.unmapped
 ,   b.urgent_care
+,   b.total_paid_amount
 from {{ ref('member_months') }} a
 left join {{ ref('encounter_spend') }} b
     on a.patient_id = b.patient_id
