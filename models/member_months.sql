@@ -67,17 +67,20 @@ with src as
     from years
     cross join months
 )
-select patient_id,
-       -- member_id,
-       concat(year,lpad(month,2,0)) as year_month,
-       year,
-       lpad(month,2,0) as month,
-       start_date,
-       end_date,
-       payer,
-       payer_type
-       -- dual_status_code,
-       -- medicare_status_code
+select distinct 
+    patient_id,
+    -- member_id,
+    concat(year,lpad(month,2,0)) as year_month,
+    year,
+    lpad(month,2,0) as month,
+    month_start,
+    month_end,
+    -- start_date,
+    -- end_date,
+    payer,
+    payer_type
+    -- dual_status_code,
+    -- medicare_status_code
 from src
 inner join dates
     on src.start_date <= dates.month_end 
