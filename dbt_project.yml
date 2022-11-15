@@ -18,6 +18,10 @@ vars:
                                        # name of the schema where sources
                                        # feeding this project are stored
 
+    pharmacy_schema: tuva_claims_input                 # configuration required
+                                       # name of the schema where sources
+                                       # feeding this project are stored
+
     output_database: transformed_data              # configuration required
                                        # name of the database where output of
                                        # this project should be written
@@ -28,6 +32,7 @@ vars:
 
     encounter: "{{ source(var('source_name'),'encounter') }}"
     coverage: "{{ source(var('source_name'),'coverage') }}"
+    pharmacy_claim: "{{ source(var('source_name'),'pharmacy_claim') }}"
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be

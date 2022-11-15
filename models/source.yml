@@ -7,3 +7,8 @@ sources:
     tables:
       - name: coverage
       - name: encounter
+  - name: "{{ var('source_name') }}"
+    database: "{{ var('input_database') }}"
+    schema: "{{ var('pharmacy_schema') }}"
+    tables:
+      - name: pharmacy_claim
