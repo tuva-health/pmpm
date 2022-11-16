@@ -11,6 +11,11 @@ models:
         database: "{{ var('output_database') }}"
         schema: "{{ var('output_schema') }}"
 
+    - name: pmpm_and_utilization_builder
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+
     - name: encounter_spend
       config:
         database: "{{ var('output_database') }}"
