@@ -4,13 +4,13 @@ with src as
          (select
               patient_id,
               -- member_id,
-              coverage_start_date as start_date,
-              coverage_end_date as end_date,
+              enrollment_start_date as start_date,
+              enrollment_end_date as end_date,
               payer,
               payer_type
               -- dual_status_code,
               -- medicare_status_code
-          from {{ var('coverage') }}
+          from  {{ var('eligibility') }}
          )
 , months as (
     select 1 as month

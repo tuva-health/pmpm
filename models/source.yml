@@ -3,12 +3,8 @@ version: 2
 sources:
   - name: "{{ var('source_name') }}"
     database: "{{ var('input_database') }}"
-    schema: "{{ var('input_schema') }}"
-    tables:
-      - name: coverage
-      - name: encounter
-  - name: "{{ var('source_name') }}"
-    database: "{{ var('input_database') }}"
-    schema: "{{ var('pharmacy_schema') }}"
+    schema: "{{ var('claims_input_schema') }}"
     tables:
       - name: pharmacy_claim
+      - name: medical_claim
+      - name: eligibility

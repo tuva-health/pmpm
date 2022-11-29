@@ -6,32 +6,12 @@ models:
         database: "{{ var('output_database') }}"
         schema: "{{ var('output_schema') }}"
 
-    - name: encounter_spend_and_utilization
+    - name: claim_spend_and_utilization
       config:
         database: "{{ var('output_database') }}"
         schema: "{{ var('output_schema') }}"
 
     - name: pmpm_and_utilization_builder
-      config:
-        database: "{{ var('output_database') }}"
-        schema: "{{ var('output_schema') }}"
-
-    - name: encounter_spend
-      config:
-        database: "{{ var('output_database') }}"
-        schema: "{{ var('output_schema') }}"
-    
-    - name: encounter_utilization
-      config:
-        database: "{{ var('output_database') }}"
-        schema: "{{ var('output_schema') }}"
-    
-    - name: pmpm_spend
-      config:
-        database: "{{ var('output_database') }}"
-        schema: "{{ var('output_schema') }}"
-    
-    - name: pmpm_utilization
       config:
         database: "{{ var('output_database') }}"
         schema: "{{ var('output_schema') }}"
