@@ -14,7 +14,7 @@ vars:
                                        # name of the database where sources
                                        # feeding this project are stored
 
-    claims_input_schema: claims_input                 # configuration required
+    claims_input_schema: claims_common # configuration required
                                        # name of the schema where sources
                                        # feeding this project are stored
 
@@ -22,7 +22,7 @@ vars:
                                        # name of the database where output of
                                        # this project should be written
 
-    output_schema: pmpm        # configuration required
+    output_schema: pmpm                # configuration required
                                        # name of the schema where output of this
                                        # schema should be written
 
