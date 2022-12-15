@@ -29,9 +29,9 @@ select
     mm.patient_id
     ,mm.year_month
     --,plan or payer field
-    ,sv.total_spend
-    ,sv.medical_spend
-    ,sv.pharmacy_spend
+    ,coalesce(sv.total_spend,0) as total_spend
+    ,coalesce(sv.medical_spend,0) as medical_spend
+    ,coalesce(sv.pharmacy_spend,0) as pharmacy_spend
 from member_months mm
 left join cte_spend_and_visits sv
     on mm.patient_id = sv.patient_id
