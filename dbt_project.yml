@@ -10,7 +10,7 @@ vars:
                                        # this project - typically matches input
                                        # schema name
 
-    input_database: tuva               # configuration required
+    input_database: tuva_claims_demo_sample               # configuration required
                                        # name of the database where sources
                                        # feeding this project are stored
 
@@ -18,7 +18,7 @@ vars:
                                        # name of the schema where sources
                                        # feeding this project are stored
 
-    output_database: tuva              # configuration required
+    output_database: tuva_claims_demo_sample              # configuration required
                                        # name of the database where output of
                                        # this project should be written
 
