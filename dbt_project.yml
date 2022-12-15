@@ -2,37 +2,33 @@ name: 'pmpm'
 version: '1.0.0'
 config-version: 2
 
-profile: 'firsthand'
+profile: 'tuva'
 
 vars:
-    source_name: tuva_core                  # configuration required
+    source_name: tuva                  # configuration required
                                        # name describing the dataset feeding
                                        # this project - typically matches input
                                        # schema name
 
-    input_database: transformed_data               # configuration required
+    input_database: tuva_claims_demo_sample               # configuration required
                                        # name of the database where sources
                                        # feeding this project are stored
-    
-    input_schema: tuva_core                 # configuration required
+
+    claims_input_schema: claims_common # configuration required
                                        # name of the schema where sources
                                        # feeding this project are stored
 
-    pharmacy_schema: tuva_claims_input                 # configuration required
-                                       # name of the schema where sources
-                                       # feeding this project are stored
-
-    output_database: transformed_data              # configuration required
+    output_database: tuva_claims_demo_sample              # configuration required
                                        # name of the database where output of
                                        # this project should be written
 
-    output_schema: tuva_pmpm        # configuration required
+    output_schema: pmpm                # configuration required
                                        # name of the schema where output of this
                                        # schema should be written
 
-    encounter: "{{ source(var('source_name'),'encounter') }}"
-    coverage: "{{ source(var('source_name'),'coverage') }}"
+    eligibility: "{{ source(var('source_name'),'eligibility') }}"
     pharmacy_claim: "{{ source(var('source_name'),'pharmacy_claim') }}"
+    medical_claim: "{{ source(var('source_name'),'medical_claim') }}"
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+    - name: member_months
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+
+    - name: claim_spend_and_utilization
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
+
+    - name: pmpm_builder
+      config:
+        database: "{{ var('output_database') }}"
+        schema: "{{ var('output_schema') }}"
