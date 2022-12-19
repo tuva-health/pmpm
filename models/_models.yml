@@ -10,6 +10,7 @@ models:
         {% else %}pmpm{%- endif -%}
       alias: intermediate_member_months
       tags: pmpm
+      materialized: table
     tests:
        - unique:
            column_name: "(patient_id || '_' || year_month)"
@@ -41,6 +42,7 @@ models:
         {% else %}pmpm{%- endif -%}
       alias: intermediate_claim_spend_and_utilization
       tags: pmpm
+      materialized: table
     tests:
        - unique:
            column_name: "(patient_id || '_'  || claim_type || '_' || year_month)"
@@ -66,7 +68,7 @@ models:
         {% else %}pmpm{%- endif -%}
       alias: final_pmpm_builder
       tags: pmpm
-      materialized: 'table'
+      materialized: table
     tests:
        - unique:
            column_name: "(patient_id || '_' || year_month)"

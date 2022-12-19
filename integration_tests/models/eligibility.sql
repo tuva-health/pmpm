@@ -1,2 +1,2 @@
 select *
-from tuva.claims_input.eligibility
+from tuva_claims_demo_sample.claims_common.eligibility

@@ -4,9 +4,9 @@ with medical as
 (
     select
         patient_id
-       ,year(claim_end_date) as year
-       ,lpad(month(claim_end_date),2,0) as month
-       ,concat(year(claim_end_date),lpad(month(claim_end_date),2,0)) AS year_month
+       ,date_part(year, claim_end_date) as year
+       ,lpad(date_part(month, claim_end_date),2,0) as month
+       ,date_part(year, claim_end_date) || lpad(date_part(month, claim_end_date),2,0) AS year_month
        ,claim_type
        ,paid_amount
     from {{ var('medical_claim') }}
@@ -15,10 +15,10 @@ with medical as
 (
     select
         patient_id
-        ,year(to_date(dispensing_date)) as year
-        ,lpad(month(to_date(dispensing_date)),2,0) as month
-        ,concat(year(to_date(dispensing_date)),lpad(month(to_date(dispensing_date)),2,0)) as year_month
-        ,'pharmacy' as claim_type
+        ,date_part(year, dispensing_date) as year
+        ,lpad(date_part(month, dispensing_date),2,0) as month
+        ,date_part(year, dispensing_date) || lpad(date_part(month, dispensing_date),2,0) AS year_month
+        ,cast('pharmacy' as varchar) as claim_type
         ,paid_amount
     from {{ var('pharmacy_claim') }}
 )

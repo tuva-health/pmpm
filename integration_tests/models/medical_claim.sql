@@ -1,2 +1,2 @@
 select *
-from tuva.claims_input.medical_claim
+from tuva_claims_demo_sample.claims_common.medical_claim
