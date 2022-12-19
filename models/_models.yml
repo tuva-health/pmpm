@@ -10,6 +10,9 @@ models:
         {% else %}pmpm{%- endif -%}
       alias: intermediate_member_months
       tags: pmpm
+    tests:
+       - unique:
+           column_name: "(patient_id || '_' || year_month)"
     description: >
       This model has a record for every year and month combination for every month that a patient is eligibile.
     columns:
@@ -29,7 +32,6 @@ models:
         description: Name of the payer (i.e. health insurer) providing coverage.
       - name: payer_type
         description: Type of payer (e.g. commercial, medicare, medicaid, etc.).
-
   - name: pmpm__claim_spend_and_utilization
     config:
       database: "{{ var('pmpm_database',var('tuva_database','tuva')) }}"
@@ -39,6 +41,9 @@ models:
         {% else %}pmpm{%- endif -%}
       alias: intermediate_claim_spend_and_utilization
       tags: pmpm
+    tests:
+       - unique:
+           column_name: "(patient_id || '_'  || claim_type || '_' || year_month)"
     description: >
       Add model description
     columns:
@@ -52,7 +57,6 @@ models:
         description: This metric counts the number of claims over the given dimension for each member month.
       - name: spend
         description: This metric sums the paid_amounts or spend over the given dimension for each member month.
-
   - name: pmpm__pmpm_builder
     config:
       database: "{{ var('pmpm_database',var('tuva_database','tuva')) }}"
@@ -63,6 +67,9 @@ models:
       alias: final_pmpm_builder
       tags: pmpm
       materialized: 'table'
+    tests:
+       - unique:
+           column_name: "(patient_id || '_' || year_month)"
     description: >
       Add model description
     columns:

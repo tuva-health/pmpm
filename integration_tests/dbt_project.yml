@@ -6,7 +6,7 @@ profile: 'tuva'
 
 vars:
 ## List of optional vars
-# tuva_database: test
+# tuva_database: dev_forrest
 # tuva_schema_prefix: test
 # <package_name>_database: dev_user
 # <package_name>_schema: test
