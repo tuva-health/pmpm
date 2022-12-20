@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(enabled = var('pmpm_enabled',var('tuva_packages_enabled',True)) ) }}
 
 with src as
          (select

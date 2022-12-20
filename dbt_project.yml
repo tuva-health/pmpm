@@ -1,34 +1,27 @@
 name: 'pmpm'
-version: '1.0.0'
+version: '0.0.1'
 config-version: 2
 
-profile: 'tuva'
+profile: 'default'
 
 vars:
-    source_name: tuva                  # configuration required
-                                       # name describing the dataset feeding
-                                       # this project - typically matches input
-                                       # schema name
+    eligibility: |
+        {% if var('pmpm_eligibility_override',none) is not none %}{{var('pmpm_eligibility_override')}}
+        {%- elif var('eligibility_override',none) is not none %}{{var('eligibility_override')}}
+        {%- else %}{{ref('eligibility')}}
+        {% endif %}
 
-    input_database: tuva_claims_demo_sample               # configuration required
-                                       # name of the database where sources
-                                       # feeding this project are stored
+    pharmacy_claim: |
+        {% if var('pmpm_pharmacy_claim_override',none) is not none %}{{var('pmpm_pharmacy_claim_override')}}
+        {%- elif var('pharmacy_claim_override',none) is not none %}{{var('pharmacy_claim_override')}}
+        {%- else %}{{ref('pharmacy_claim')}}
+        {% endif %}
 
-    claims_input_schema: claims_common # configuration required
-                                       # name of the schema where sources
-                                       # feeding this project are stored
-
-    output_database: tuva_claims_demo_sample              # configuration required
-                                       # name of the database where output of
-                                       # this project should be written
-
-    output_schema: pmpm                # configuration required
-                                       # name of the schema where output of this
-                                       # schema should be written
-
-    eligibility: "{{ source(var('source_name'),'eligibility') }}"
-    pharmacy_claim: "{{ source(var('source_name'),'pharmacy_claim') }}"
-    medical_claim: "{{ source(var('source_name'),'medical_claim') }}"
+    medical_claim: |
+        {% if var('pmpm_medical_claim_override',none) is not none %}{{var('pmpm_medical_claim_override')}}
+        {%- elif var('medical_claim_override',none) is not none %}{{var('medical_claim_override')}}
+        {%- else %}{{ref('medical_claim')}}
+        {% endif %}
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be

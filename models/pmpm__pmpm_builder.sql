@@ -1,14 +1,14 @@
-{{ config(materialized='table') }}
+{{ config(enabled = var('pmpm_enabled',var('tuva_packages_enabled',True)) ) }}
 
 with member_months as
 (
     select distinct patient_id, year_month
-    from {{ref('member_months')}}
+    from {{ref('pmpm__member_months')}}
 )
 , claim_spend_and_utilization as
 (
     select *
-    from {{ref('claim_spend_and_utilization')}}
+    from {{ref('pmpm__claim_spend_and_utilization')}}
 )
 , cte_spend_and_visits as
 (

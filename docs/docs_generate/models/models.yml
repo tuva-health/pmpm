@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: eligibility
+    config:
+      database: tuva
+      schema: pmpm_input
+    description: > 
+      The PMPM package uses the eligibility output from claims_common as an input.
+      If claims_common is bypassed and a custom eligibility model is used, this model represents the minimum required data elements needed for PMPM to function.
+    columns:
+      - name: patient_id
+        description: Unique identifier for each patient in the dataset.
+      - name: enrollment_start_date
+        description: Date the patient's insurance eligibility began.
+      - name: enrollment_end_date
+        description: Date the patient's insurance eligibility ended.
+      - name: payer
+        description: Name of the payer (i.e. health insurer) providing coverage.
+      - name: payer_type
+        description: Type of payer (e.g. commercial, medicare, medicaid, etc.).
+
+  - name: medical_claim
+    config:
+      database: tuva
+      schema: pmpm_input
+    description: > 
+      The PMPM package uses the medical_claim output from claims_common as an input.
+      If claims_common is bypassed and a custom medical_claim model is used, this model represents the minimum required data elements needed for PMPM to function.
+    columns:
+      - name: patient_id
+        description: Unique identifier for each patient in the dataset.
+      - name: claim_end_date
+        description: End date for the claim.
+      - name: paid_amount
+        description: The total amount paid on the claim by the insurer.
+      - name: claim_type
+        description: Indicates whether the claim is professional (CMS-1500), institutional (UB-04), dental, or vision.
+
+  - name: pharmacy_claim
+    config:
+      database: tuva
+      schema: pmpm_input
+    description: >
+      The PMPM package uses the pharmacy_claim output from claims_common as an input.
+      If claims_common is bypassed and a custom pharmacy_claim model is used, this model represents the minimum required data elements needed for PMPM to function.
+    columns:
+      - name: patient_id
+        description: Unique identifier for each patient in the dataset.
+      - name: dispensing_date
+        description: Date the prescription was filled.
+      - name: paid_amount
+        description: Amount paid by the health insurer for the claim.
