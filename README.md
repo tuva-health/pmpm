@@ -20,7 +20,7 @@ order by year_month
 
 In January 2023 we’ll be updating this data mart to include utilization (i.e. visits) with break outs of both spend and utilization by 16 different encounter types (e.g. acute inpatient, ED, office visit, SNF, etc.).
 
-For information on data models and to view the entire DAG check out our dbt Docs.
+For information on data models and to view the entire DAG check out our dbt [Docs](https://tuva-health.github.io/pmpm/#!/overview).
 
 ## 🔌 What databases are supported?
 
@@ -43,7 +43,7 @@ The Tuva Project is a collection of dbt packages that build healthcare concepts 
 
 ### **Step 1:**
 
-First you must create the necessary input tables as models within your dbt project so that the Tuva package of interest can reference them using ref() functions. To run this PMPM package, you must create these 3 tables as models within your dbt project.
+First you must create the necessary input tables as models within your dbt project so that the Tuva package of interest can reference them using ref() functions. To run this PMPM package, you must create [these 3 tables](https://tuva-health.github.io/pmpm/#!/model/model.pmpm_input.eligibility) as models within your dbt project.
 
 ### **Step 2:**
 
