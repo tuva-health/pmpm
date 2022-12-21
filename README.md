@@ -24,7 +24,7 @@ For information on data models and to view the entire DAG check out our dbt [Doc
 
 ## 🔌 What databases are supported?
 
-This package has been tested on **Snowflake** and **Redshift**.
+This package has been tested on **Snowflake** , **Redshift** and **BigQuery**.
 
 ## 📚 What versions of dbt are supported?
 
