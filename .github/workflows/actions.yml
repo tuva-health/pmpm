@@ -1,0 +1,25 @@
+name: run dbt
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout before downloading artifacts or setting profiles.yml
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: fal-ai/dbt-cloud-action@main
+        id: dbt_cloud_run
+        with:
+          dbt_cloud_token: ${{ secrets.DBT_CLOUD_API_TOKEN }}
+          dbt_cloud_account_id: ${{ secrets.DBT_CLOUD_ACCOUNT_ID }}
+          dbt_cloud_job_id: ${{ secrets.DBT_CLOUD_JOB_ID }}
+          interval: 5
+          failure_on_error: false
