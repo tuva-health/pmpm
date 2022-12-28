@@ -1,2 +1,1 @@
-select *
-from tuva_claims_demo_sample.claims_common.eligibility
+select * from {{source('claims_common','eligibility')}}
