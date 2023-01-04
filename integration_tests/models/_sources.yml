@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: claims_common
+    database: "{{ var('pmpm_input_database','tuva') }}"
+    schema:  "{{ var('pmpm_input_schema','claims_common') }}"
+    tables:
+      - name: medical_claim
+      - name: eligibility
+      - name: pharmacy_claim
