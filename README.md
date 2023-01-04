@@ -54,7 +54,7 @@ To import the PMPM package, you need to include the following in your `packages.
 ```
 packages:
   - package: tuva-health/pmpm
-    version: 0.0.1
+    version: 0.0.2
 
 ```
 
