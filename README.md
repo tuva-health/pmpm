@@ -24,7 +24,7 @@ For information on data models and to view the entire DAG check out our dbt [Doc
 
 ## 🔌 What databases are supported?
 
-This package has been tested on **Snowflake** and **Redshift**.
+This package has been tested on **Snowflake** , **Redshift** and **BigQuery**.
 
 ## 📚 What versions of dbt are supported?
 
@@ -54,7 +54,7 @@ To import the PMPM package, you need to include the following in your `packages.
 ```
 packages:
   - package: tuva-health/pmpm
-    version: 0.0.1
+    version: 0.0.2
 
 ```
 

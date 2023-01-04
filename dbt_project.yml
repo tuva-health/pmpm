@@ -1,5 +1,5 @@
 name: 'pmpm'
-version: '0.0.1'
+version: '0.0.2'
 config-version: 2
 
 profile: 'default'
@@ -9,19 +9,19 @@ vars:
         {% if var('pmpm_eligibility_override',none) is not none %}{{var('pmpm_eligibility_override')}}
         {%- elif var('eligibility_override',none) is not none %}{{var('eligibility_override')}}
         {%- else %}{{ref('eligibility')}}
-        {% endif %}
+        {%- endif %}
 
     pharmacy_claim: |
         {% if var('pmpm_pharmacy_claim_override',none) is not none %}{{var('pmpm_pharmacy_claim_override')}}
         {%- elif var('pharmacy_claim_override',none) is not none %}{{var('pharmacy_claim_override')}}
         {%- else %}{{ref('pharmacy_claim')}}
-        {% endif %}
+        {%- endif %}
 
     medical_claim: |
         {% if var('pmpm_medical_claim_override',none) is not none %}{{var('pmpm_medical_claim_override')}}
         {%- elif var('medical_claim_override',none) is not none %}{{var('medical_claim_override')}}
         {%- else %}{{ref('medical_claim')}}
-        {% endif %}
+        {%- endif %}
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
