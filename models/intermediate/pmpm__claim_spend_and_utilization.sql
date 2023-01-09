@@ -14,6 +14,8 @@ with medical as
     from {{ var('medical_claim') }}
 )
 , pharmacy as
+
+{# jinja to use an empty pharmacy_claim table if the pharmacy_claim_exists var is set to false, or the node in the pharmacy_claim variable otherwise  #}
 {% if var('pharmacy_claim_exists',True) %}
 (
     select
