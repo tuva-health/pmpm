@@ -2,7 +2,7 @@ name: 'pmpm_input'
 version: '1.0.0'
 config-version: 2
 
-profile: 'tuva'
+profile: 'default'
 
 
 dispatch:

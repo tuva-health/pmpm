@@ -2,11 +2,11 @@ name: 'integration_tests'
 version: '1.0.0'
 config-version: 2
 
-profile: 'tuva'
+profile: 'default'
 
-vars:
+#vars:
 ## List of optional vars
-# tuva_database: dev_forrest
+# tuva_database: dev_user
 # tuva_schema_prefix: test
 # <package_name>_database: dev_user
 # <package_name>_schema: test
