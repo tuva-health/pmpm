@@ -1,5 +1,6 @@
 {{ config(enabled = var('pmpm_enabled',var('tuva_packages_enabled',True)) ) }}
 
+
 with medical as
 (
     select
@@ -13,6 +14,9 @@ with medical as
     from {{ var('medical_claim') }}
 )
 , pharmacy as
+
+{# jinja to use an empty pharmacy_claim table if the pharmacy_claim_exists var is set to false, or the node in the pharmacy_claim variable otherwise  #}
+{% if var('pharmacy_claim_exists',True) %}
 (
     select
         patient_id
@@ -24,6 +28,23 @@ with medical as
        ,paid_amount
     from {{ var('pharmacy_claim') }}
 )
+{% else %}
+{% if execute %}
+{{- log("pharmacy_claim soruce does not exist, using empty table.", info=true) -}}
+{% endif %}
+(
+    select
+        cast(null as {{ dbt.type_string() }} ) as patient_id
+       ,cast(null as {{ dbt.type_string() }} ) as year
+       ,cast(null as {{ dbt.type_string() }} ) as month
+       ,cast(null as {{ dbt.type_string() }} ) as year_month
+       ,cast('pharmacy' as {{ dbt.type_string() }}) as claim_type
+       ,cast(null as numeric) as paid_amount
+    limit 0
+)
+
+{%- endif %}
+
 
 select
     patient_id

@@ -71,6 +71,11 @@ vars:
   eligibility_override: "{{ref('eligibility')}}"
   pharmacy_claim_override: "{{ref('pharmacy_claim')}}"
 
+# If your source doesn't have any pharmacy claim data you can optionally add 
+# following variable, which will make it so you can run the project without 
+# creating a pharmacy_claim model
+# pharmacy_claim_exists: false
+
 # These variables name the database and schemas that the
 # output of the PMPM package will be created in:
   tuva_database:  tuva     # make sure this database exists in your data warehouse
